@@ -7,6 +7,7 @@ class Echonote extends StatefulWidget {
 }
 
 class _EchonoteState extends State<Echonote> {
+  bool isFABVisble = true;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -29,10 +30,41 @@ class _EchonoteState extends State<Echonote> {
                 Tab(text: 'Task'),
               ]),
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: isFABVisble?
+        FloatingActionButton(onPressed: (){
+          setState(fn:() {
+            isFABVisble=false;
+            
+          });
+        }
           backgroundColor: const Color.fromARGB(255, 69, 163, 72),
-          onPressed: () {},
-          child: Text('+'),
+    
+          child: Text(
+            '+',
+            style: TextStyle(
+                color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),
+          ),
+
+        )
+        :null,
+        floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
+        body: Stack(
+          children: <Widget>[
+            if (!isFABVisble)
+            Positioned(
+              right: 30,
+              bottom: 20,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  FloatingActionButton(
+                    onPressed: (){
+
+                    },
+                    
+                ],
+              ),)
+          ],
         ),
       ),
     );
