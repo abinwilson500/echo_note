@@ -9,7 +9,8 @@ class Echonote extends StatefulWidget {
   State<Echonote> createState() => _EchonoteState();
 }
 
-class _EchonoteState extends State<Echonote> {
+class _EchonoteState extends State<Echonote> 
+{
   bool isFABVisble = true;
   @override
   Widget build(BuildContext context) {
